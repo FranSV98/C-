@@ -38,13 +38,11 @@ void imprimirLista (string lista[], int tama){
     cout << i <<endl;
   }
 }
-
 void imprimirLista (char lista[], int tama){
   for (int i = 0 ; i < tama ; i++){
     cout << i <<endl;
   }
 }
-
 void pasarLista (string lista[], int tama, char listaFaltas[]){
   string respuesta;
   for (int i = 0 ; i < tama ; i++){
@@ -54,7 +52,6 @@ void pasarLista (string lista[], int tama, char listaFaltas[]){
     else listaFaltas[i] = 'F';
   }
 }
-
 int aBase8 (int numero){
   int unidades;
   int decenas;
@@ -69,14 +66,29 @@ int aBase8 (int numero){
   }
   return numero;
 }
+void imprimirLista (int lista[], int tama){
+  for (int i = 0 ; i < tama ; i++){
+    cout << i <<endl;
+  }
+}
+void reorganizarComida (int pecerasComida[], int tama){
+  int sobran = 0;
+  for(int i=0 ; i < tama ; i++){
+    pecerasComida[i] += sobran;
+    sobran = pecerasComida[i]%3;
+    pecerasComida[i] -= sobran;
+  }
+}
 
 int main(){
 string contrasena = "crustaceo";
 int numero;
+int tama;
 int tamaLista = 5;
 int numeroBase8;
 string listaPulpos[] = {"A","B","C","D","E"};
 char listaFaltas[tamaLista];
+int crustaceos[] = {23, 74, 92, 64, 27, 13, 84, 73};
 //Nombre
   cout << "Francisco Soto Vera" << endl;
 
@@ -98,6 +110,9 @@ cout << endl;
 pasarLista(listaPulpos, tamaLista, listaFaltas);
 cout << endl;
 imprimirLista(listaFaltas, tamaLista);
+imprimirLista(crustaceos, 8);
+reorganizarComida (crustaceos, tama);
+imprimirLista(crustaceos, 8);
 
   return 0;
 }
