@@ -3,27 +3,20 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-  string juego = "csgo";
-  string & ocio = juego;
-  string juegos[5];
+  int main(){
+    string juego = "CSGO";
+    //string &ocio = juego;
+    //string juegos[5];
+    string* ptrJuego = &juego;
 
-  cout << juego <<endl; //Imprimer csgo
-  cout << ocio <<endl;  //Imprime csgo
-  cout << &ocio <<endl; //Imprime la direccion de memoria
-  cout << &juego <<endl;  //Imprime la direccion de memoria
+    //cout << juego <<endl; //Imprimer csgo
 
-  ocio = "Pokemon";
+    cout << "Imprimo el juego:" << juego << endl;
+    cout << "Imprimo el &juego:" << &juego << endl;
+    //cout << "Imprimo el ptrjuego:" << *juego << endl;
+    cout << "Imprimo el ptrjuego:" << ptrJuego << endl;
+    cout << "Imprimo *el ptrjuego:" << *ptrJuego << endl;
 
-  cout << ocio << endl;
-  cout << juego <<endl;
-
-  cout << &juegos << endl;
-  cout << &juegos[0] << endl;
-  cout << &juegos[1] << endl;
-  cout << &juegos+2 << endl;
-  cout << &juegos[3] << endl;
-  cout << &juegos[4] << endl;
 
   return 0 ;
 }
