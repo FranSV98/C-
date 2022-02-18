@@ -54,7 +54,7 @@ int main(){
     cout << "Juegos" << i << " = " << juegos[i] << endl;
   }*/
 
-  /*
+
   numero2 = multiplicaX5(numero1);
   cout << "El numero1 es " << numero1 << endl;
   cout << "El numero2 es " << numero2 << endl;
@@ -66,7 +66,7 @@ int main(){
   subirNota(notas,1,9);
   cout << "Nota tras subir la nota" << endl;
   imprimirArray(notas,3);
-  */
+  
 
   //cout << sizeof(numeros) << endl;
 
