@@ -38,7 +38,7 @@ public:
 
 int main(){
 
-  Rectangulo folio(2,3);
+  Rectangulo folio(2,2);
   Rectangulo tablero;
   Rectangulo manta(4);
   double areaFolio;
@@ -48,8 +48,10 @@ int main(){
   folio.setBase(2);
   folio.setAltura(2);
   folio.imprimir();
+
   areaFolio = folio.area();
   cout << "El area del folio es "<< areaFolio << endl;
+
   cout << "Tablero" << endl;
   tablero.imprimir();
   cout << "Manta" << endl;
