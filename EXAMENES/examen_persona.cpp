@@ -53,7 +53,7 @@ class Persona {
       if (this->edad >18){
         cout << "Eres mayor de edad.";
       } else {
-        cout << "Eres menor de dad.";
+        cout << "Eres menor de edad.";
       }
       cout << endl;
     }
