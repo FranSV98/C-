@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// CONCEPTO: Herencia por composición o agragación.
+
 class Motor{
   private:
     bool estado;
@@ -10,9 +12,15 @@ class Motor{
       this->estado = estado;
     }
   public:
+    // Constructor
     Motor(){
       this->estado = false; // Apagado
     }
+    // Destructor
+    ~Motor(){
+      cout << "Pasamos por el destructor de motor." << endl;
+    }
+
     bool getEstado (){
       return this->estado;
     }
@@ -41,7 +49,10 @@ class Ventana{
     }
   public:
     Ventana(){
-      this->estado = false; // Estan cerradas.
+      this->estado = false; // Esta cerrada.
+    }
+    ~Ventana(){
+      cout << "Pasamos por el destructor de ventana." << endl;
     }
     bool getEstado (){
       return this->estado;
@@ -66,6 +77,89 @@ class Puerta{
   private:
     bool estado;
     Ventana ventanilla;
+  private:
+    void setEstado(bool estado){
+      this->estado = estado;
+    }
+  public:
+    Puerta(){
+      this->estado = false;
+    }
+    ~Puerta(){
+      cout << "Pasamos por el destructor de puerta." << endl;
+    }
+    bool getEstado (){
+      return this->estado;
+    }
+    /*
+    // Con punteros en vez de por referencia:
+    Ventana* getVentanilla(){
+      return &(this->ventanilla);
+    }
+    */
+    Ventana & getVentanilla(){
+      return this->ventanilla;
+    }
+    void cerrarPuerta(){
+      this->setEstado(false);
+    }
+    void abrirPuerta(){
+      this->setEstado(true);
+    }
+    void imprimir(){
+      if (this->estado){
+        cout << "La puerta esta abierta.";
+      } else {
+        cout << "La puerta esta cerrada.";
+      }
+      cout << endl;
+      this->ventanilla.imprimir();
+    }
+};
+
+class Coche{
+  private:
+    bool estado;
+    Puerta puertaDer;
+    Puerta puertaIzq;
+    Motor motor;
+  private:
+    void setEstado(bool estado){
+      this->estado = estado;
+    }
+  public:
+    Coche(){
+      this->estado = false; // Coche cerrado
+    }
+    bool getEstado (){
+      return this->estado;
+    }
+    Puerta & getPuertaDer(){
+      return this->puertaDer;
+    }
+    Puerta & getPuertaIzq(){
+      return this->puertaIzq;
+    }
+    Motor & getMotor(){
+      return this->motor;
+    }
+    void cerrarCoche(){
+      this->setEstado(false);
+    }
+    void abrirCoche(){
+      this->setEstado(true);
+    }
+    void imprimir(){
+      if (this->estado){
+        cout << "El coche esta abierto.";
+      } else {
+        cout << "El coche esta cerrado.";
+      }
+      cout << endl;
+      this->puertaDer.imprimir();
+      this->puertaIzq.imprimir();
+      this->motor.imprimir();
+    }
 };
 
 int main(){
@@ -75,13 +169,37 @@ int main(){
   miMotor.imprimir();
   miMotor.apagar();
   miMotor.imprimir();
-
+  delete & miMotor;
+  cout << "---------------------------------" << endl;
   Ventana miVentana;
   miVentana.imprimir();
   miVentana.abrirVentana();
   miVentana.imprimir();
   miVentana.cerrarVentana();
   miVentana.imprimir();
-
+  cout << "---------------------------------" << endl;
+  Puerta miPuerta;
+  miPuerta.imprimir();
+  miPuerta.abrirPuerta();
+  miPuerta.imprimir();
+  miPuerta.cerrarPuerta();
+  miPuerta.imprimir();
+  cout << "---------------------------------" << endl;
+  /*  -> acceder a métodos a través de un puntero al objeto al que pertenecen.
+      .  acceder a métodos a través del objeto al que pertenecen */
+  // Con punteros:
+  // miPuerta.getVentanilla()->imprimir();
+  miPuerta.getVentanilla().imprimir();
+  miPuerta.getVentanilla().abrirVentana();
+  miPuerta.getVentanilla().imprimir();
+  miPuerta.getVentanilla().cerrarVentana();
+  miPuerta.getVentanilla().imprimir();
+  cout << "---------------------------------" << endl;
+  Coche miCoche;
+  miCoche.abrirCoche();
+  miCoche.getMotor().arrancar();
+  miCoche.getPuertaDer().abrirPuerta();
+  miCoche.getPuertaDer().getVentanilla().abrirVentana();
+  miCoche.imprimir();
   return 0;
 }
