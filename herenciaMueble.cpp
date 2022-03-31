@@ -16,6 +16,8 @@ class Mueble{
     void imprimir(){
         cout << " Material: " << this->material << " Dimensiones: " << this->dimensiones << "." << endl;
     }
+
+
     void setMaterial(string material){
         this->material = material;
     }
@@ -28,6 +30,7 @@ class Mueble{
     string getDimensiones(){
         return this->dimensiones;
     }
+
   };
 
   class Mesa : public Mueble{
