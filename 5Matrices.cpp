@@ -10,7 +10,7 @@ void rellenarMatrizNumero(int matriz[TAMA][TAMA], int nFil, int nCol){
   }
 }
 
-
+///paco
 int main(){
   int array[TAMA];
   int matriz[TAMA][TAMA];
