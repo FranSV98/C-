@@ -16,26 +16,29 @@ private:
 
   public:
     Tablero(){
-      this->filas = 8;
-      this->columnas = 8;
+      this->filas = 3;
+      this->columnas = 3;
       tablero = new string*[filas];
 
       for (int i = 0 ; i < filas ; i++){
         tablero[i] = new string[columnas];
       }
 
-      rellenarTablero("A");
+      rellenarTableroX("X");
+      rellenarTableroY("Y");
     }
 
-    void rellenarTablero(string relleno){
-      for (int i = 0 ; i < this->filas ; i++){
-        for (int j = 0 ; j < this->columnas ; j++){
-          tablero[i][j] = relleno;
-        }
+    void rellenarTableroY(string relleno){
+      for (int i = 0 ; i < this->filas ; i++)
+          tablero[i] = relleno;
       }
     }
 
-
+    void rellenarTableroX(string relleno){
+      for (int i = 0 ; i < this->filas ; i++)
+          tablero[j] = relleno;
+      }
+    }
 
     void imprimir(){
       this->imprimirLinea();
